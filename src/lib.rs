@@ -27,7 +27,7 @@ mod back_of_house {
         pub fn summer(toast: &str) -> Breakfast{
             Breakfast {
                 toast: String::from(toast),
-                seasonal_fruit: String::from("peaches");
+                seasonal_fruit: String::from("peaches"),
             }
         }
     }
