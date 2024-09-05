@@ -32,6 +32,12 @@ mod back_of_house {
         }
     }
 
+    // If a enum is public, all its variants are then public
+    pub enum Appetizer {
+        Soup,
+        Salad,
+    }
+
     fn fix_incorrect_order(){
         cook_order();
         super::deliver_order();
@@ -47,6 +53,9 @@ pub fn eat_at_restaurant() {
     
     //Relative path
     front_of_house::hosting::add_to_waitlist();
+
+    let order1 = back_of_house::Appetizer::Soup;
+    let order2 = back_of_house::Appetizer::Salad;
 }
 
 pub fn eat_breakfast_at_restaurant (){
