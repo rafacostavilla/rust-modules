@@ -14,12 +14,12 @@ mod front_of_house {
     }
 }
 
-fn deliver_order() {}
+fn deliver_order() { hosting::add_to_waitlist()}
 
-
+//Re-export
+//pub use crate::front_of_house::hosting;
 
 mod back_of_house {
-
 
     pub struct Breakfast {
         pub toast: String,
@@ -45,7 +45,7 @@ mod back_of_house {
         cook_order();
         super::deliver_order();
     }
-
+    // reference the outer shortcut
     fn cook_order() {super::hosting::add_to_waitlist();}
 }
 
