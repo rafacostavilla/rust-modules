@@ -16,7 +16,10 @@ mod front_of_house {
 
 fn deliver_order() {}
 
+
+
 mod back_of_house {
+
 
     pub struct Breakfast {
         pub toast: String,
@@ -43,8 +46,9 @@ mod back_of_house {
         super::deliver_order();
     }
 
-    fn cook_order() {}
+    fn cook_order() {super::hosting::add_to_waitlist();}
 }
+
 
 
 pub fn eat_at_restaurant() {
@@ -53,6 +57,8 @@ pub fn eat_at_restaurant() {
     
     //Relative path
     front_of_house::hosting::add_to_waitlist();
+
+    hosting::add_to_waitlist();
 
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
@@ -67,3 +73,5 @@ pub fn eat_breakfast_at_restaurant (){
 
     // meal.seasonal_fruit = String::from("blueberries");
 }
+
+use crate::front_of_house::hosting;
