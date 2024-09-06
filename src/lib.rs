@@ -1,31 +1,15 @@
-mod front_of_house {
-    pub mod hosting{
-        pub fn add_to_waitlist(){}
-
-        fn seat_at_table(){}
-    }
-
-    mod serving{
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
-
-fn deliver_order() { hosting::add_to_waitlist()}
+mod front_of_house;
 
 //Re-export
-//pub use crate::front_of_house::hosting;
+pub use crate::front_of_house::hosting;
 
 mod back_of_house {
-
+    
     pub struct Breakfast {
         pub toast: String,
         seasonal_fruit: String,
     }
-
+    
     impl Breakfast {
         pub fn summer(toast: &str) -> Breakfast{
             Breakfast {
@@ -34,7 +18,7 @@ mod back_of_house {
             }
         }
     }
-
+    
     // If a enum is public, all its variants are then public
     pub enum Appetizer {
         Soup,
@@ -49,7 +33,15 @@ mod back_of_house {
     fn cook_order() {super::hosting::add_to_waitlist();}
 }
 
+mod serving{
+    fn take_order() {}
 
+    fn serve_order() {}
+
+    fn take_payment() {}
+}
+
+fn deliver_order() { hosting::add_to_waitlist()}
 
 pub fn eat_at_restaurant() {
     //Absolute path
@@ -73,5 +65,3 @@ pub fn eat_breakfast_at_restaurant (){
 
     // meal.seasonal_fruit = String::from("blueberries");
 }
-
-use crate::front_of_house::hosting;
